@@ -1,0 +1,2 @@
+# LED Compass
+This is a project that was inspired from a book titled "Arduino Project Handbook, Vol 2" by Mark Geddes. His projects utilizes an Arduino Uno, a neopixel ring and a HMC5883-L module to create a compass that points north using the neopixel leds. I created a similar projects but used an LED strip instead. Plus, I created a mechanical enclosure to keep the compass in, which was not shown in Mark Geddes version of the project.
