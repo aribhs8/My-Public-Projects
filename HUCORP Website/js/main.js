@@ -1,0 +1,4 @@
+// slide-show
+$(document).ready(() => {
+    
+});

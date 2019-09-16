@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HUCORP</title>
+        <!-- icon of webpage that appears on tab -->
+        <link rel="icon" href="images/logo.jpg" />
+        <!-- link(s) to font(s)-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- link(s) to stylesheet(s)-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+        <!-- script files-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"
+            defer></script>
+        <script src="../js/main.js" defer></script>
+    </head>
+
+    <body>
+        <!-- sidebar -->
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a href="../index.html"><img src="../images/logo.jpg" /></a>
+                    <h3>HUCORP</h3>
+                </div>
+        
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="../python_tutorial.html">
+                            <img src="../images/return-button.png" />
+                            Go Back to Python Tutorials
+                        </a>
+                    </li>
+                    <li>
+                            <a href="https://www.youtube.com/channel/UCj3mTMyGuozzEnObfTodimQ?view_as=subscriber" target="_blank">
+                                <span style="font-family: FontAwesome; margin-right: 3%; width:7.5%;">&#xf16a;</span>
+                                Go to YouTube Channel
+                            </a>
+                        </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container" id="tutorial">
+            <h1>Pygame Tutorial 1-1: Setting Up Your Project</h1>
+            <p>This is the first lesson of our tutorial series on programming games with Pygame. It is intended for
+                users who are completely new to the Pygame library and are looking for a quick and easy way to
+                get started. Intermediate Python skills are required.</p>
+            <p>A video version of this tutorial can be seen below:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iZcEi1k_dRQ" 
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2>Introduction to Pygame</h2>
+            <p>Pygame is a library available for Python that allows programmers to build games. Bear in mind
+                that it is not necessary to use Pygame to create games, but it will greatly simplify the
+                process. As with all libraries, it has its own unique status and rules.
+            </p>
+            <h2>Anatomy of a Game</h2>
+            <p>Every game that you create, regardless of what programming language you use will have the
+                following:
+            </p>
+            <ol>
+                <li><strong>Game Loop</strong> that will house most of the program.</li>
+                <li><strong>Processing input section</strong> that will obtain input from the user (either mouse clicks or keyboard input; 
+                    advanced games may even use audio or motion detection)</li>
+                <li><strong>Rendering/drawing section</strong> that will display everything on the screen.</li>
+                <li><strong>Update section</strong> that is responsible for updating events that occur within the game (i.e. Player
+                    movement).</li>
+            </ol>
+            <h2>Building a Template for Use in Pygame Projects</h2>
+            <p>Now that we know everything that we need in our game, we can begin constructing a simple program
+                that we can use to start any Pygame project. This program will do nothing but open a window
+                and run a game loop. This template will serve you well in any future Pygame projects.
+            </p>
+            <h3>Before the Game Loop - Adding Settings and Initializing Pygame</h3>
+            <p>Before starting any project in Pygame you need to import the Pygame package into your program. To do
+                this just type "import pygame" at the top of your python file. Since most games involve some use of
+                a random property (e.g. Random spawns, random items, random enemies, etc.), it is a good habit to import
+                the random package as well:</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/imports.png" />
+            <p>After importing the libraries, it is also a good idea to specify settings for our
+                game window. This includes the width and height of the window along with the number
+                of frames that will appear per second:</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/screen_settings.png" />
+            <p>After specifying our screen settings, we need to create a pygame window: </p>
+            <img src="../images/blogs/pygame_tutorials/1-1/window_creation.png" />
+            <p>The last bits of code before the game loop will concern the colors used in the render section of the game. Pygame uses the
+                RGB color format (R, G, B). Red, green and blue are known as the primary colors of the universe (forget
+                what your art teacher told you!). By combining the colors in specific ratios, we can make any imaginable color.
+                Each pixel on a computer screen is made up of these three colors. </p>
+            <p>Each of these primary colors have a value between 0 (off) and 255 (100% on), so there are 256 possibilities for each of the 
+                three primary colors. In total, there are 16,777,216 colors that a computer can display (256 x 256 x 256).</p>
+            <p>We will define the primary colors, as well as black and white, underneath our screen settings: </p>
+            <img src="../images/blogs/pygame_tutorials/1-1/colors.PNG" />
+            <p>Now we have to make the game loop. Our game loop will controlled by a variable
+                called running which we will set to "True" initially. This way, we can close the game by simply setting
+                running to "False". The while statement will be used to create the loop:</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/game_loop.png" />
+            <h2>Inside the Game Loop</h2>
+            <h3>The Render/Draw Section</h3>
+            <p>As stated previously, this section is responsible for the stuff that appears on the pygame window. Since we have already defined some colors above, we can
+                use one of these colors as background to fill our screen with. This can be accomplished with the "screen.fill" function.</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/screen_fill.PNG" />
+            <p>After using the "screen.fill" function, it is advised to use another function called "pygame.display.flip()". The reason
+                for this is because of the way computer displays work. Changing a pixel on the screen means telling the GPU to tell the monitor
+                to change the actual pixel. This can be a very slow process, which means that you can expect heavy delays when you have lots of things
+                to draw. "pygame.display.flip()" fixes this by implementing something known as "double-buffering".</p>
+            <p>"Double-buffering" sounds complicated, but it can be explained by a simple analogy. Image if you had a double-sided whiteboard, and you can flip the whiteboard
+                to show one side or the other. The front will be shown to everyone in the audience (in game terms, the screen the player sees), while the back is hidden and only
+                only you can see it (in game terms, you would be the computer). Rather than writing a letter on the board and then showing it to the audience each time, you could
+                write multiple lines of text and then show it to the audience (which would significantly reduce time). In computer terms, this means that in every frame, we do all our
+                drawing on the back side - every character, every bullet, every color, etc. Then, when we're done, we flip the board over and show
+                the new frame. This means that we are doing the slow process of changing the display <em>once</em> every frame and not for every
+                single thing on the screen.</p>
+            <p>The "pygame.display.flip()" function runs last, after everything has drawn:</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/flip_screen.PNG" />
+            <h3>Input/Events Section</h3>
+            <p>Since this is just a template, and we don't actually have a game just yet, we can't really specify what keys or mouse buttons
+                or controls we want to listen for. However, there is one crucial event that we need to setup: exiting the game.</p>
+            <p>If you tried to close the window right now, you would notice that it is un-closable. Clicking the 'X' does nothing. The reason for this is because
+                closing the window counts as an event, and we need to tell our program to exit once it detects that event. </p>
+            <p>Events can happen at any point in time, regardless of where the program is in it's loop cycle. Since no input can be ignored, pygame
+                stores all events in a list that have happened since the last frame. That way, if the player is pressing a lot of buttons, you can
+                know about all of them. Since the events are in a list, you will need a for loop to look at all of them.</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/input.PNG" />
+            <p>The pygame.QUIT event is used to detect if the user is trying to close the window.</p>
+            <h3>Controlling FPS</h3>
+            <p>Since we have no objects appearing in our game window, we don't need to include anythin in the 'Update' section yet, but we still
+                need to set the FPS setting of our game. This is done through the "clock.tick()" function. The tick() function tells pygame to figure out how
+                long it takes to make the whole frame to last the right amount of time. Setting FPS to 30 means that each frame should last 0.03 seconds. If the loop
+                code takes only takes 0.01 seconds, pygame will wait 0.02 more seconds before continuing. We will set the FPS of our game right after we create
+                the game loop:</p>
+            <img src="../images/blogs/pygame_tutorials/1-1/fps_setting.png" />
+            <h2>The Pygame Template - Draft I</h2>
+            <p>After including all of the sections specified above, we are left with the following code:</p>
+            <img style="height: auto" src="../images/blogs/pygame_tutorials/1-1/template.png" />
+        </div>
+    </body>
+</html>

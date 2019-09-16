@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HUCORP</title>
+        <!-- icon of webpage that appears on tab -->
+        <link rel="icon" href="images/logo.jpg" />
+        <!-- link(s) to font(s)-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- link(s) to stylesheet(s)-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+        <!-- script files-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"
+            defer></script>
+        <script src="../js/main.js" defer></script>
+    </head>
+
+    <body>
+        <!-- sidebar -->
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a href="../index.html"><img src="../images/logo.jpg" /></a>
+                    <h3>HUCORP</h3>
+                </div>
+        
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="../python_tutorial.html">
+                            <img src="../images/return-button.png" />
+                            Go Back to Python Tutorials
+                        </a>
+                    </li>
+                    <li>
+                            <a href="https://www.youtube.com/channel/UCj3mTMyGuozzEnObfTodimQ?view_as=subscriber" target="_blank">
+                                <span style="font-family: FontAwesome; margin-right: 3%; width:7.5%;">&#xf16a;</span>
+                                Go to YouTube Channel
+                            </a>
+                        </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container" id="tutorial">
+            <h1>Pygame Tutorial 1-2: Modifying the Pygame Template and Introducing Our Project</h1>
+            <p>This is the first lesson of our tutorial series on programming games with Pygame. In this lesson we
+                will modify the pygame template that we created in the first lesson for a cleaner outlook. The game that
+                we will create with Pygame will also be introduced. These tutorials are intended for
+                users who are completely new to the Pygame library and are looking for a quick and easy way to
+                get started. Intermediate Python skills are required.</p>
+            <p>A video version of this tutorial can be seen here: </p>
+            <br><br><br><br><br>
+            <h2>Modifying the Pygame Template</h2>
+            <p>In the last lesson, we covered the basics of pygame by creating a skeleton for any pygame project. The
+                problem with this model, however, is that it can lead to incredibly messy code once your project begins to
+                get more complex. To improve organization within our code, we can use a feature in python known as <em>modules</em>. Modules
+                are a way to store pieces of Python code in different files to improve readability.This means that we can create 
+                multiple files for one game, with each file fulfilling it's own unique purpose.</p>
+            <p>To begin creating our new pygame template, we will need to create three files. We'll name the first
+                file "main.py", the second file "settings.py" and the third file "sprites.py" (we may change the
+                third file later - once things get even more messy!). Bear in mind that the items within the quotes represent the file name.</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/files.png" />
+            <p>We will start by working on the main file first. It is in this file where most of the game's elements will be
+                located (the game loop, input processing, drawing/rendering and updating). To begin we will first import  the
+                pygame and random libraries (as we did last time). For the sake of simplicity, we will make it so that we can access
+                pygame by typing pg, rather than typing "pygame" all of the time. To do this we will type "import pygame as pg". After importing
+                the random libraries, we will utilize our modules through the following syntax: "from (file name) import *". Your "main.py" file
+                should now look like this:</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/imports.png" />
+            <p>After importing, we can begin re-creating our pygame template. The first thing that we will do is create a class labelled "Main"
+                (illustrates that this is the class responsible for our game), and we will create a constructor for this class through the use
+                of the __init__() method. Inside the constructor, we will initialize pygame, the pygame mixer and our game window.</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/class_declaration.png" />
+            <p>But wait! We haven't yet defined WIDTH, HEIGHT and TITLE. This is where our modules come in handy. WIDTH, HEIGHT and TITLE are settings
+                for the game window, which means that it makes since to store their values their. We will define WIDTH, HEIGHT and TITLE in our
+                "settings.py" file:</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/screen_settings.png" />
+            <p>While we are defining our screen settings in the "settings.py" file, we may as well define our colors as
+                well:</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/settings.png" />
+            <p>For our purposes (creating a new pygame template), this should be all the code we need in our "settings.py". Let's head back to our
+                "main.py" file and begin creating our game. Inside our "Main" class, we will have 7 methods (excluding the constructor). The
+                first method will be "new()", in which we will create a new game. In the "new()" method we will create a "sprite group" that we
+                will later use to show our sprites onto the screen. To do this we will type "self.all_sprites = pg.sprite.Group()" inside the new
+                method. While we're at it, we'll create run(), update(), events() and draw() methods. In the "new()" method we will also call the
+                run() method.</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/main_methods.png" />
+            <p>In our "run()" method, we will create a "self.playing" variable to create a game loop, in which we will call the update(), events() and draw()
+                methods. We will also set the FPS of our game within the loop. The order of the methods does not matter, except for the draw method (which should
+                be last because of <em>pg.display.flip()</em>).</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/run_method.png" />
+            <p>Now we will fill in the remaining methods with the remaining code that we used in our original template. We will also
+                utilize the "all_sprites" group that we created for updating and drawing:</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/main_methods_complete.png" />
+            <p>Below our "Main" class, we need to create an instance of this class to make our game work. To do this we'll create
+                another method called game(). We'll call this method if we are running the "main.py" file and it will create an instance
+                of our "Main" class called "g":</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/class_instance.png" />
+            <p>Since we want our game to look as professional as possible, we will also include a start screen and a game over screen.
+                However, since this is just a template, we will only create empty methods for these two elements. That way, when we're ready
+                to work on our start and game over screens, we won't have to refactor as much code:</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/start_screen.png" />
+            <p>After creating these two methods, we can finish our "game" method. We will add the following code:</p>
+            <img src="../images/blogs/pygame_tutorials/1-2/finished_game_method.png" />
+            <p>Finally, after correcting all of those annoying pyLint errors that kept popping up (the wildcard (*) was removed as it's use
+                is discouraged), we get this: </p>
+            <img src="../images/blogs/pygame_tutorials/1-2/finished_template.png" />
+            <br><br><br>
+            <p>The code can be found on Github here: </p>
+            <br>
+            <h2>Our Project - Justice League</h2>
+            <p>For our tutorial series, we will focus on creating a game based on DC's most popular characters, the Justice League!
+                For the sake of simplicity, we will only use 4 leaguers, with each possessing their own unique ability for use in the game.
+                We will use Flash for his incredible speed, Green Lantern for his ability to move heavy objects with his ring, Batman, because
+                he's Batman, and Aquaman, for his underwater capabilities. The game will be based on the online flash platformer game "Tag Team Titans".
+                The reason we decided to use this game as a benchmark is because it will allow our game to utilize several of pygame's complex features. 
+                We'll work with gravity, forces, collisions, power-ups, different character-abilities, and multiple levels!</p>
+            <p>A demo of "Tag Team Titans" can be seen below (all credits go to Lagged): </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/w-Zv-bZ4uec" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br><br><br>
+        </div>
+    </body>
+</html>
